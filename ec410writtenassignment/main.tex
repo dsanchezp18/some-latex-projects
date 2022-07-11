@@ -1,0 +1,249 @@
+\documentclass[12pt,twoside,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,tabu}
+\usepackage{multirow}
+\usepackage{pdflscape}
+
+\usepackage{amsfonts}
+\usepackage{booktabs}
+\usepackage{titlesec}
+\usepackage{units}
+\usepackage{lipsum}
+\usepackage{enumitem}
+\usepackage{wrapfig}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{amssymb}
+\usepackage{caption}
+\usepackage{hyperref}
+\usepackage{csquotes}
+
+
+\usepackage{subcaption}
+\usepackage{booktabs}
+\numberwithin{equation}{section}
+\usepackage{enumitem}
+\usepackage{setspace}
+\doublespacing
+\usepackage[margin=1in]{geometry}
+\usepackage{caption}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{width=\textwidth,
+            height=10cm,
+            compat=newest,
+                grid=major,
+    grid style= dashed,
+   /pgf/number format/.cd,
+        use comma,
+        1000 sep={}}
+
+  \usepackage[margin=1in]{geometry}
+            
+            \usepackage{fancyhdr}
+    \pagestyle{fancy}
+    \fancyhf{}
+     \fancyhead[LO]{ \textsc{Ecuador: Saving Rates \& Growth}}
+     \fancyhead[RO]{EC410, Prof. C. Ahlin}
+     \fancyhead[LE]{\textsc{Daniel Sanchez}}
+     \fancyhead[RE]{\textsc{Michigan State University}}
+     \fancyfoot[CO,CE]{-\hspace{0.1cm}\thepage\hspace{0.1cm}-}
+     
+\usepackage[style=authoryear,backend=biber,citestyle=apa,maxnames=2]{biblatex}
+
+\addbibresource{biblio.bib}
+\nocite{*}
+
+
+\begin{document}
+\begin{titlepage}
+\centering
+\textsc{\large{Michigan State University}}
+\vspace{3cm}\\ 
+\begin{Huge}
+ \line(1,0){400}\\
+\textsc{Development in Ecuador:}\\
+\textsc{Savings Rates and Growth}\\
+ \line(1,0){400}
+\end{Huge}
+\vspace{8cm}
+\flushleft 
+\begin{large}
+Due April 15th, 2020\\
+Daniel Sanchez \\
+PID A60296778\\
+Issues in the Economics of Developing Countries\\
+Section 001 \\
+Professor C. Ahlin \\
+\end{large}
+
+\end{titlepage}
+\listoffigures
+\clearpage
+Economic growth is often a topic of interest in both academic and political environments, probably because it is frequently seen as one of the primary sources for wellbeing. \textcite{Abel.2014} further develop this idea by stating that living standards are determined by the long-run rate of economic growth. This economic growth, as measured by the rate of change in the GDP per capita measure of an economy, will be explored and analyzed in this paper. Besides theoretically discussing growth, the case study of Ecuador from 1971 to 2018 will be used to illustrate the theory.  The model that will be primarily used as framework for analysis will be the Solow Growth Model. 
+
+This model considers the economic growth rate $g$ to be dependent on other economic variables, namely, the savings rate(s) $s_j$, the depreciation rate $d$, population growth rate $n$, and productivity $A$. It also takes into account an important caveat to growth: diminishing returns to the inputs of the economy’s production function. This implies that there will not be perpetual growth in income per capita; rather, a steady-state level will be reached in the long-run. Improvements in the economic variables will have positive effects on growth (increasing this steady-state level and thus the growth rate), yet these will only cause a temporary increase in the growth rate of an economy, as in the long run there will be no more increases when total factor productivity is assumed to be constant over time \parencite{Williamson.2014}.
+
+Ultimately, the model concludes that changes in savings rates are crucial to an economy’s growth. As a country saves more of their income, this is invested into capital, and since it is assumed that all other variables remain constant (especially capital depreciation), actual investment in the economy will surpass required investment, thus creating more capital stock or in other words raising the steady state capital stock $k^*$ \parencite{Mankiw.2010}. The capital stock starts increasing as the savings rate grows until it reaches its steady state level. 
+
+This will generate more output as a common production function predicts: $Y=F(K,N)$ and will also generate greater output per worker given a per capita production function $y=f(k)$ as time passes, since the capital stock is increasing and labor force remains constant. This implies that, given a change in a key variable, the economy's growth rate will increase (since it had been zero in its previous equilibrium state) and then fall back until it reaches zero once again when the new steady state income and capital stock are reached. After all, a greater capital stock implies a bigger capacity to produce in the future without an increase in the labor force $N$, and since output per capita is total output divided by the labor force, increases in this variable are expected \parencite{Abel.2014}. The H-augmented Solow Model reaches the same conclusions, however, this model now separates saving into two different rates which are the capital savings rate $s_k$ and the human capital savings rate $s_{h}$, and this is the approach that will be used here. 
+
+Now, to test the predictions of the model, real-world data on the developing country Ecuador will be used. Located in upper South America, Ecuador is considered an upper middle income country by the \textcite{WorldBankGroup.2019}. However, it ranks 22 out of 33 Latin American countries with regard to GDP per capita level, according to the data in the IMF's World Economic Outlook Database \parencite*{InternationalMonetaryFund.2019}.
+\begin{figure}[H]
+\fbox{
+\begin{minipage}{\textwidth}
+    \centering
+    \begin{tikzpicture}
+    \begin{axis}[
+    xlabel={$t$ [Years]},
+    ylabel={GDP per Capita [1=1000 2011 PPP Dollars]},
+    legend entries={Argentina, Bolivia, Brazil, Chile, Colombia, Ecuador, Mexico, Peru},
+    legend pos=north west,
+    legend columns=2
+            ]
+               \addplot[black, mark=|] table {argentina.txt};
+        \addplot[red,mark=o] table {bolivia.txt};
+        \addplot[green,mark=x] table {brazil.txt};
+        \addplot[violet,mark=Mercedes star] table {chile.txt};
+        \addplot[magenta, mark=asterisk] table {colombia.txt};
+      \addplot[blue, mark=star] table {ecuador.txt};
+       \addplot[cyan, mark=10-pointed star] table {mexico.txt};
+        \addplot[brown, mark=diamond] table {peru.txt};
+            \end{axis}
+         \end{tikzpicture}
+    \caption[GDP per capita, select South American Countries]{GDP per Capita for select South American economies, constant 2011 PPP-adjusted dollars, 1980-2011. }
+    \label{fig:grafopaises}
+    \end{minipage}
+    }
+\end{figure}
+As it can be seen above, Ecuador has grown conservatively since 1980. Starting at about the same level with Chile, Colombia and Peru, she was quickly surpassed by Chile (which has grown to be one of the strongest economies in Latin America), Colombia and Peru as well. Ecuador's income per capita growth was estimated as 35\% from 1980 to 2019, which is the second smallest growth out of the countries seen in Figure \ref{fig:grafopaises}.
+
+Growth rates ($g_y$) are the key ``dependent'' variable, thus they are graphed against time below along with the total GDP growth rate $g_Y$ and the GDP per capita growth rate for Latin America and the Caribbean $g_y^{LA}$. The savings rates $s_k$ and $s_h$ are also graphed against time in panel \textbf{(b)} of Figure \ref{fig:grafogsksh}.  Note that $s_k$ is proxied by gross capital formation as a percentage of that year's real GDP, and that $s_h$ is proxied by the secondary school enrollment rate.  
+
+Over time, GDP per capita growth has fluctuated substantially, with notable outliers in 1973 with about 10\% growth and in 1999 with about -6\%. These were important periods in the country's history. Ecuador established herself as an oil exporter with its reserves in its Amazon region in the 70's \parencite{.2012} and in the late 90's a harsh recession and financial crisis severely hit the country\parencite{.2014}. Thus, the per capita growth rate follows about the same path as the total GDP growth rate, however the latter seems to be much more resilient, most likely due to the arithmetic nature of the per capita statistic. The per capita growth rate also moves closely with the per capita growth rate of the region, with a smaller magnitude in most cases, which suggests important integration of Ecuador with her sister countries. 
+
+ Gross capital formation seems to move together with the growth rate, but not perfectly. In fact, it has not deviated more than 10 percentage points betweeen 1960 and 2018, with an average of 23.34 percentage points. From then to now, there has been essentially no change , moving from 25.41\% to 25.95\%. The $s_h$ rate, in turn, has skyrocketed from 25.51\% to a 101.43\footnote{Since these are gross secondary enrollment rates instead of net rates, the \textcite{WorldBankGroup.} states that the rate can exceed 100\% as it counts people who enrolled in secondary school on a given year but where outside the age group that corresponded to a certain education level in secondary schooling.}\%  from 1971 to 2018. However, it does not appear to move together with $g_y$, as the latter skyrockets while the former remains stable. 
+
+\begin{figure}
+\fbox{
+\begin{minipage}{\textwidth}
+    \centering
+    \begin{tikzpicture}
+    \begin{axis}[ title style={at={(0.5,-0.18)},anchor=north,yshift=-0.1},title=\textbf{(a)} Growth rate time series,
+    xlabel={$t$ [Years]},
+    ylabel={$g_y$ [Year-to-year $\Delta \%$]},
+    legend entries={$g_y$,$g_Y$,$g_y^{LA}$}
+                ]
+               \addplot[blue, mark=square] table {g.txt};
+               \addplot[red, mark=Mercedes star] table {gyLA.txt};
+               \addplot[violet, mark=o] table {gdptotalrate.txt};
+                  \end{axis}
+         \end{tikzpicture}
+             \begin{tikzpicture}
+    \begin{axis}[ title style={at={(0.5,-0.18)},anchor=north,yshift=-0.1},title=\textbf{(a)} Savings rates time series,
+    xlabel={$t$ [Years]},
+    ylabel={$s_k$ [\% of GDP], $s_h$ [\% of eligible individuals]},
+    legend entries={Gross capital formation ($s_k$), Secondary school enrollment ($s_h$)},
+    legend pos=north west
+                ]
+               \addplot[black, mark=diamond] table {sk.txt};
+               \addplot[green, mark=x] table {sh.txt};
+                  \end{axis}
+         \end{tikzpicture}
+             \caption[Time series for $g$,$s_k$,$s_h$ (1971-2018)]{GDP per Capita year to year percentage change, gross capital formation as a percentage of GDP and secondary school enrollment rates, 1971-2018.}
+    \label{fig:grafogsksh}
+    \end{minipage}
+    }
+\end{figure}
+In order to analyze the predicted relationship between capital formation, a scatter plot contanining the proxy for $s_k$ in the $x$ axis and $g_y$ in the $y$ axis is included below:
+\begin{figure}[H]
+\fbox{
+\begin{minipage}{\textwidth}
+    \centering
+    \begin{tikzpicture}
+    \begin{axis}[axis lines=box,
+        xlabel={Gross capital formation ($s_k$) [as a \% of GDP]},
+    ylabel={GDP per capita growth rate ($g_y$) [Year-to-year $\Delta \%$]},
+                legend entries={,Trend Line: $\hat{g_y}=-0.7156+0.0951s_k ; \ R^2=0.008$}]
+                \addplot[black, only marks, mark=*,] table {gysk.txt};
+                \addplot[blue,dashed,] coordinates {(18.36,1.03) (28.47,1.992443)};
+                                                \end{axis}
+         \end{tikzpicture}
+\caption[Scatter plot of $s_k$ against $g_y$]{Scatter plot: GDP per capita growth rate $g_y$ explained by gross capital formation rates, data from 1961 to 2018.}
+    \label{fig:grafoskgsy}
+    \end{minipage}
+    }
+\end{figure}
+Figure \ref{fig:grafogygsk} portrays what could be a positive relationship between $s_k$ and $g_y$, which is evidence in favor of the economic theory. However it is a rather weak relationship in goodness-of fit-terms as well as statistical and practical significance. This may be due to unavailability of long-term data in both international and Ecuadorian databases as well as a failure to properly account for other factors in the regression analysis. Perhaps a small relationship might also exist given that Ecuador has had relatively no change in capital formation over time. 
+
+In analyzing the data for other countries, it is seen that Chile (which showed the fastest growth in the period for which data is available) did also change its capital formation quite radically: an 8 percentage point increase from 1960 to 2018. Ecuador shows the smallest increase in capital formation, and Brazil (which had been predicted to grow the least) actually showed a four percentage point decrease in capital formation. This is consistent with Solow's propositions. 
+
+The story with the proxy for $s_h$ is quite different, as seen below: 
+
+\begin{figure}[H]
+\fbox{
+\begin{minipage}{\textwidth}
+    \centering
+    \begin{tikzpicture}
+    \begin{axis}[axis lines=box,
+        xlabel={Secondary school enrollment ($s_h$) [\% of eligible individuals for age groups]},
+    ylabel={GDP per capita growth rate ($g_y$) [Year-to-year $\Delta \%$]},
+                legend entries={,Trend Line: $\hat{g_y}=3.7578-0.0348s_h ;\ R^2=0.057$}]
+                \addplot[black, only marks, mark=*,] table {gysh.txt};
+                \addplot[blue,dashed,] coordinates {(25.51,2.87) (104.86,0.11)};
+                                                \end{axis}
+         \end{tikzpicture}
+\caption[Scatter plot of $s_h$ against $g_y$]{Scatter plot: GDP per capita growth rate $g_y$ explained by secondary school enrollment, data from 1961 to 2018.}
+    \label{fig:grafogygsk}
+    \end{minipage}
+    }
+\end{figure}
+There seems to be a negative relationship between $g_y$ and $s_h$.  This strange negative relationship seems to be even stronger than the positive one found before, based on the $R^2$ estimate. Surely many things are biasing the procedure as this is a counterintuitive relationship. 
+
+Why could the slope parameter for human capital investment be biased so severely? (the slope parameter for capital investment is most likely biased too, but at least the bias has gone in the “correct” direction). Many of the assumptions of the regression model probably do not hold, but the omitted variable bias may have a strong effect: it is likely that variables correlated to human capital investment are left out of the regression model and cause a bias. \textcite{Woolridge.2016} proposes a simple approach of misspecification analysis using the correlation coefficients and the slope parameter signs of the omitted variable. There seems to be a downward bias on this case: which means that the correlation of human capital is negative with an omitted variable and the effect of the variable is positive on the dependent variable, or viceversa.
+
+One obvious suspect for the omitted variable is the depreciation rate. The greater the depreciation, the smaller the growth in income per capita as a greater depreciation erodes the capital stock's capacity to produce \parencite{Abel.2014}. As human capital increases the intensity that capital is being used probably increases, which will decrease its lifespan. However, it is difficult to find data for a general capital depreciation rate, making empirical testing for this relationship difficult. 
+
+Another economic variable which could explain this likely bias might be government spending. If it is large, enrollment in all education levels may be higher as some percentage of government spending may go to education. However, higher government spending could mean higher taxes, which could mean lesser productivity and thus slower growth: this shows a possible downward bias. This also makes sense when considering that a higher income (total real GDP for 2018 is about eight times the total real GDP for 1960) will cause expenditure on schooling yet also, as predicted by Solow, the growth rate will decrease due to diminishing returns of inputs.
+
+Public finance has been, throughout Ecuador's history, a quite controversial and politically rather than economically motivated discussion topic. Rosenthal, et al. (2020) covers many aspects of Ecuador's fiscal risk, but the takeaway is that under the last years, a deplorable management of public funds has undermined the capability of the central government to meet its obligations, and this further hinders the economy's growth. It is evident that this economic variable is crucial for explaining Ecuador's growth. Sadly, the data available for public finance in general leaves much to be desired. Data reported by the Ecuadorian government is often thought to be unreliable and difficult to access. 
+
+The IMF's World Economic Outlook Database includes information on gross government debt, however it is only available beginning 1995. The World Bank Database includes the most information on government expenditure, starting in the 60's. The time series for this statistic as shown in Figure \ref{fig:grafogov}, as well as a scatter plot of the variable against $g_y$.
+\begin{figure}[H]
+\fbox{
+\begin{minipage}{\textwidth}
+    \centering
+    \begin{tikzpicture}
+    \begin{axis}[
+    xlabel={$t$ [Years]},
+    ylabel={Gov. expenditure [\% of GDP]},
+                ]
+               \addplot[black, mark=square] table {govexpt.txt};
+                    \end{axis}
+         \end{tikzpicture}
+         
+          \begin{tikzpicture}
+    \begin{axis}[axis lines=box,
+        xlabel={Gross capital formation ($s_k$) [as a \% of GDP]},
+    ylabel={GDP per capita growth rate ($g_y$) [Year-to-year $\Delta \%$]},
+                legend entries={,Trend Line: $\hat{g_y}=0.93+0.05(G_{FC}/Y) ; \ R^2=0.002$}]
+                \addplot[black, only marks, mark=*,] table {govexpgy.txt};
+                \addplot[blue,dashed,] coordinates {(7.19,1.36) (20.94,1.87)};
+                                                \end{axis}
+         \end{tikzpicture}
+                          \caption[Government Time Series and Scatter Plot]{Government expenditure on final expenditure [\% of GDP] against time and scatter plot against $g_y$.}
+                             \label{fig:grafogov}
+    \end{minipage}
+    }
+\end{figure}
+
+Looking at Figure \ref{fig:grafogov} , there seems to be a positive relationship with GDP per Capita and the growth rate, which is inconsistent with the predictions made. This could be due to error in measurement (there is no reliable, long-term data on total government expenditure). Also, considering that the data studied is on final consumption rather than gross government consumption (which includes expenses considered to be investments) the portion of the expenditure that really has a negative effect in the economy may be left out. Using gross government debt may be a solution to this, however observations here are lost given that data is only available until 1996. Using data from 1996 to 2018, a negative correlation between $g_y$ and gross government debt (as a \% of GDP) is indeed seen, but it is minor and only considers 23 observations. 
+
+Another effect may be considered: a higher government spending may have a positive effect on the economy in the short run as Keynesian economics suggests \parencite{Abel.2014}. This could be further proven by analysis done by \textcite{LaTorre.2017} who argue that the economy, back in the higher oil price years, boomed as the government squandered their high revenues and when this ended, negative growth would be expected. However, this also shows that government expenditure and the growth rate are indeed negatively correlated if sufficient years are considered (long-run analysis), however it was difficult to obtain reliable data on prior years. Besides, the simple misspecification analysis argument may be flawed as \textcite{Woolridge.2016} states that correlations between variables may hinder the analysis on how correlations between variables affect the likely sign of the bias.
+
+Many other factors can be used to explain growth rates. The paper cited by \textcite{LaTorre.2017} before thoroughly describes a “trap mechanism” for the Ecuadorian economy which involves the unsustainable fiscal deficit, worsening terms of trade due to the US dollar appreciation, political instability, lack of foreign capital inflows, among others. However, taking all of these factors into account would be difficult due to the unavailability of reliable data on economc variables as well as the need of sophisticated econometric methods, which are out of the scope of this work. Ultimately, we were able to empirically prove economic relationships that seem to somewhat fit the theories seen in class. Savings rates proxied by gross capital formation seem to have a somewhat positive effect on growth if we consider that Ecuadorian growth has stagnated perhaps due to a virtually non-existing capital formation. 
+
+\printbibliography
+\end{document}
+

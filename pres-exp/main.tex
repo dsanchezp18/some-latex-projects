@@ -1,0 +1,276 @@
+\documentclass[t,9pt,xcolor=dvipsnames]{beamer}
+\usepackage{setspace}
+\setstretch{1.5}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish,es-lcroman,es-nosectiondot]{babel}%quitar el punto después de secciones
+%\usefonttheme{professionalfonts}
+\usepackage{nicefrac}
+\usetheme{Berlin}
+\useoutertheme{infolines}
+\useinnertheme{rounded}
+\definecolor{darkergreen}{rgb}{0.12, 0.3, 0.17}
+\definecolor{lapislazuli}{rgb}{0.15, 0.38, 0.61}
+\definecolor{veige}{rgb}{0.12,,215}
+\definecolor{black}{rgb}{0,0,0}
+\definecolor{burlywood}{rgb}{0.87, 0.72, 0.53}
+\setbeamercolor{background canvas}{bg=white}
+
+
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{width= 0.8 \textwidth,
+            height=6 cm,
+            compat=newest,
+                grid=major,
+    grid style= dashed,
+    every tick label/.append style={font=\scriptsize}
+}
+
+
+
+\usecolortheme[named=black]{structure}
+	\definecolor{cambridgeblue}{rgb}{0.64, 0.76, 0.68}
+	\definecolor{lavenderblue}{rgb}{0.8, 0.8, 1.0}
+
+\usepackage[style=authoryear,backend=biber,citestyle=apa,maxnames=2]{biblatex}
+\DefineBibliographyStrings{spanish}{andothers={et~al\adddot}}%et al en vez de y cols.
+\addbibresource{biblio.bib}
+
+\renewcommand*{\bibfont}{\tiny}
+
+\usepackage{amssymb,amsmath,tabu}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\title[Proyecto Final: MEG Experimental Modificado]{\textsc{Diseño Experimental: Juego del Mínimo Esfuerzo}}
+
+\usepackage{multirow}
+\subtitle{Proyecto Final Economía Experimental NRC 1441}
+\author[Alejandra Marchán \& Daniel Sánchez]{Alejandra Marchán \and Daniel Sánchez}
+\institute[USFQ]{Universidad San Francisco de Quito}
+\date{Diciembre 2020}
+
+\begin{document}
+\begin{frame}
+\titlepage
+\end{frame}
+\begin{frame}{Contenidos}
+\begin{minipage}[c]{0.5 \textwidth}
+\vspace{0.5cm}
+\tableofcontents
+\end{minipage}
+\begin{minipage}[c]{0.45\textwidth}
+\centering 
+\includegraphics[scale=0.25]{monjas.jpg}
+\end{minipage}
+\end{frame}
+
+\section{Introducción}
+\subsection{Base Teórica}
+\begin{frame}{El trabajo en grupos}
+    \begin{itemize}
+        \item Todo tipo de transacción económica involucra organización grupal
+        \item Relevancia en la investigación y la academia así como en el ámbito organizacional
+        \item \textcite{Nalbantian.1997} establecen que en los últimos años se ha creído que los grupos de trabajo han sido la manera de aumentar productividad
+        \item Sin embargo, no siempre esto es así: las reglas y circunstancias alrededor del grupo son importantes en determinar el desempeño grupal
+        \item Diseñamos un experimento económico para investigar el efecto de diferentes circunstancias en el desempeño del trabajo grupal
+        \item Juego del Mínimo Esfuerzo (MEG): introducido por \Textcite{vanHuyck.1990} [VBB]
+        \end{itemize}
+\end{frame}
+\begin{frame}{Minimum effort/weak-link game o Stag hunt variation}
+\begin{itemize}
+        \item Desempeño grupal puede estar determinado por el esfuerzo mínimo de los integrantes del grupo
+    \item Juego estático en donde se decide en un nivel de esfuerzo
+    \item Pagos determinados por el mínimo esfuerzo con la siguiente función:
+    \begin{block}{Función de pagos de \textcite{vanHuyck.1990}}
+    $$\pi(e_i)=a \left[\min(e_1, e_2,..., e_n) \right]-b e_i, \quad a>b>0$$
+    Para $n$ jugadores, donde $e_i \in \{ 1,2,...,7\}$
+    \end{block}
+    \item Existe un equilibrio de Nash para cada nivel de esfuerzo, pero el de esfuerzos más altos es Pareto-dominante
+    \item La decisión racional es que todos los jugadores escojan el nivel más alto de esfuerzo, pero no pasa ya que $\max(e_i)$ es riesgoso
+\end{itemize}
+\end{frame}
+\subsection{Regularidades Empíricas}
+\begin{frame}{Resultados del MEG en experimentos}
+\begin{itemize}
+        \item VBB \parencite*{vanHuyck.1990} demuestran que jugadores no logran converger en el equilibrio más alto, más bien quedan atrapados en un ``mal'' equilibrio.
+         \begin{figure}[H]
+ \centering
+     \begin{tikzpicture}
+      \begin{axis}[
+    xlabel={Etapas},
+    ylabel={Frecuencia},
+    legend pos=north west,
+    legend columns=2,
+    legend entries={$e_i=1$, $e_i=7$},
+    ylabel style={font=\small},
+    xlabel style={font=\small},
+    legend style={font=\small},
+    ytick style={font= \small},
+    xtick style={font= \small},
+    ytick={0,10,20,30,40,50,60},
+      ]
+            \addplot[red, mark=square] table {unos.txt};
+            \addplot[blue, mark=diamond] table {sietes.txt};
+            \end{axis}
+     \end{tikzpicture}
+       \caption{Frecuencia de esfuerzos en el experimento de VBB (1990), tratamiento $A$.}
+ \end{figure}
+\end{itemize}
+   \end{frame}
+   \begin{frame}{Resultados del MEG en experimentos}
+   \begin{itemize}
+   \item Modificar el tamaño de grupo afecta a la coordinación y por ende a los niveles de esfuerzo escogidos por los miembros del grupo
+   \item El tipo de sujetos en la muestra afecta a los niveles de esfuerzo escogidos
+   \begin{itemize}
+       \item \textcite{Weidenholzer.12282012}: niños de 7-10 años apuntan a tener mayores niveles de esfuerzo pero no logran coordinar
+       \item \textcite{Engelmann.2010}: el \% de jugadores de Dinamarca positivamente relacionado con los niveles de esfuerzo en los grupos del MEG
+         \end{itemize}
+             \item \textcite{Gachter.2015}: la presencia de relaciones pre-existentes en el juego aumenta niveles de esfuerzo
+       \item \textcite{Holt.2007}: un costo del esfuerzo $b$ más alto reduce niveles de esfuerzo
+       \item \textcite{Chaudhuri.2009} la posibilidad de jugadores de comunicarse entre sí solo es significativa cuando los consejos son información común
+   \end{itemize}
+     \end{frame}
+     \section{Hipótesis Experimentales}
+     \begin{frame}{Hipótesis Experimental}
+     \begin{itemize}
+            \item La facilidad de coordinación es clave para determinar los niveles de esfuerzo
+     \item En la pandemia, los grupos de trabajo pueden tener serios problemas de coordinación
+     \item La coordinación en métodos virtuales se suele ver como inferior a la presencial
+     \item Comparar resultados experimentales contra controles (coordinación presencial) así como contra otros resultados experimentales. 
+     \begin{block}{Pruebas de hipótesis: Coordinación virtual vs. presencial}
+     \begin{align*}
+          H_0&: \mu_{cv}=2,79 &&   H_0: \mu_{cv}= \mu_{cp} \\
+    H_1&: \mu_{cv}< 2.79 &&  H_1: \mu_{cv}< \mu_{cp}
+     \end{align*}
+              \end{block}
+     
+                   \end{itemize}
+     \end{frame}
+\section{Diseño Experimental}
+ \subsection{Pagos y formación de grupos}
+ \begin{frame}{Pagos del experimento}
+ \begin{itemize}
+      \item Imitamos en lo más posible al experimento de VBB (1990)
+      \item En $\pi(e_i)$, definimos $a=20$, $b=10$ y agregamos una constante $c=70$, así como la columna con $e_i=0$:
+      \begin{table}[H]
+      \centering
+      \small
+\begin{tabular}{l|llllllll}
+\toprule
+\multirow{2}{*}{Tu número} & \multicolumn{8}{c}{Mínimo del número de tus compañeros} \\
+                           & 0     & 1    & 2    & 3     & 4     & 5     & 6     & 7     \\
+                           \midrule
+7                          & 0     & 20   & 40   & 60    & 80    & 100   & 120   & 140   \\
+6                          & 10    & 30   & 50   & 70    & 90    & 110   & 130   & 130   \\
+5                          & 20    & 40   & 60   & 80    & 100   & 120   & 120   & 120   \\
+4                          & 30    & 50   & 70   & 90    & 110   & 110   & 110   & 110   \\
+3                          & 40    & 60   & 80   & 100   & 100   & 100   & 100   & 100   \\
+2                          & 50    & 70   & 90   & 90    & 90    & 90    & 90    & 90    \\
+1                          & 60    & 80   & 80   & 80    & 80    & 80    & 80    & 80    \\ \bottomrule
+\end{tabular}
+\end{table}
+ \end{itemize}
+ \end{frame}
+\begin{frame}{Formación de los grupos}
+\begin{minipage}[c]{0.7\textwidth}
+\begin{itemize}
+  \item Grupos de $P=16$ sujetos, se forman aleatoriamente después de cada ronda; 15  regulares y un ``impostor'' con pagos diferentes:
+    \end{itemize}
+    \begin{table}[H]
+    \centering
+    \small
+    
+\begin{tabular}{l|lllllll}
+\toprule
+\multicolumn{1}{c}{\multirow{2}{*}{Tu número}} & \multicolumn{7}{c}{Mínimo de los números   de tus compañeros} \\\multicolumn{1}{c}{}                             & 1      & 2      & 3      & 4       & 5      & 6      & 7      \\ \midrule
+7                                                & 0      & 0      & 0      & 0       & 0      & 0      & 0      \\
+6                                                & 0      & 0      & 0      & 0       & 0      & 0      & 0      \\
+5                                                & 0      & 0      & 0      & 0       & 0      & 0      & 0      \\
+4                                                & 0      & 0      & 0      & 0       & 0      & 0      & 0      \\
+3                                                & 0      & 0      & 0      & 0       & 0      & 0      & 0      \\
+2                                                & 0      & 0      & 0      & 0       & 0      & 0      & 0      \\
+1                                                & 0      & 0      & 0      & 0       & 0      & 0      & 0      \\
+0                                                & 70     & 80     & 90     & 100     & 120    & 140    & 150   \\ \bottomrule
+\end{tabular}
+\end{table}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[c]{0.2 \textwidth}
+\includegraphics[scale=0.2]{impostr.png}
+\end{minipage}
+
+\end{frame} 
+\subsection{Tratamientos}
+\begin{frame}{Tratamientos}
+\begin{block}{Tratamientos para diseño experimental MEG modificado}
+    \begin{table}[H]
+\centering 
+\begin{tabular}{l|l|lllll}
+\toprule
+Características             & $T_1$      & $T_2$      & $T_3$     & $T_4$      & $T_5$     & $T_6$      \\
+\midrule 
+Tamaño de Grupos            & \multicolumn{6}{c}{15}
+\\ 
+Coordinación                & Ninguna & Ninguna & Física & Virtual & Física & Virtual \\
+Tiempo de Coord.      & 0       & 0       & 1      & 1       & 2      & 2       \\
+Etapas                      & \multicolumn{6}{c}{10}                                  \\
+Duración Aprox. & 1       & 1       & 2      & 2       & 3      & 3       \\
+Impostores                  & 0       & \multicolumn{5}{c}{1}  \\
+Emparejamiento & \multicolumn{6}{c}{Aleatorio} \\
+\bottomrule
+\end{tabular}
+\end{table}
+\end{block}
+\end{frame}
+\subsection{Muestreo}
+\begin{frame}{Tamaño de la muestra para intervalos de confianza}
+    \begin{itemize}
+        \item Para establecer intervalos de confianza de los esfuerzos promedio para cada tratamiento utilizamos \textcite{Anderson.2011}:
+          \end{itemize}
+            \begin{block}{Tamaño de muestra para intervalos de confianza para una media poblacional} 
+                $$n=\dfrac{(z_{\nicefrac{\alpha}{2}})^2\cdot \sigma^2}{E^2}$$
+                Donde $n$ es el número de \textit{observaciones} y con $E=\nicefrac{1}{2}\cdot w$ de un intervalo al $(1-\alpha)\%$ de confianza
+        \end{block}
+\begin{itemize}
+    \item Trataremos de replicar la exactitud de VBB (1990), donde $E\approx 0,15 $ y $\sigma_V\approx1.85$, o realizar un experimento piloto
+    \item Con esta fórmula, $n=428$; se requeriría $\nicefrac{428}{10}\approx 43$ sujetos
+    \item Para completar 3 grupos de 16 se requeriría 45 sujetos regulares y 3 impostores, en total 48 sujetos a ser reclutados
+\end{itemize}
+\end{frame}
+\begin{frame}{Tamaño de la muestra para la prueba de hipótesis}
+    \begin{itemize}
+        \item Considerando tanto la confianza de una prueba de hipótesis  $1-\alpha$ como el poder $1-\beta$, se utiliza la formúla simplificada de \textcite{Jacquemet.2018} que proporcionan \textcite{Anderson.2011}
+        \end{itemize}
+        \begin{block}{Tamaño de muestra para pruebas de hipótesis  de \textcite{Anderson.2011}}
+            $$n'=\dfrac{(z_{\alpha}+z_{\beta})^2 \cdot  \sigma^2}{(\mu_0-\mu_a)^2}$$
+                    \end{block}
+                    \begin{itemize}
+                        \item Se define $\alpha=\beta=0,05$, $\sigma=\sigma_V$, $\mu_0=2,79$
+                        \item La media comparable para errores tipo II la definimos como $\mu_a=2.5$
+                        \item $n'=442$, lo que nos lleva a los mismos requerimientos anteriores
+                       \end{itemize}
+                       \end{frame}
+\begin{frame}{Características de la muestra}
+\begin{itemize}
+    \item El experimento de VBB reclutó solamente estudiantes de la carrera de economía, sin embargo podríamos caer en problemas de validez externa
+    \item \textcite{Jacquemet.2018} sostiene que los estudiantes de economía se comportan de manera diferente al resto de la población
+    \item Se debería reclutar a estudiantes de la USFQ de todo tipo de carreras mediante diferentes medios, dando un pago inicial de participación
+    \item Debería representarse para cada colegio académico las proporciones que se encuentran en la población de todos los estudiantes de la USFQ
+\end{itemize}
+    \end{frame}       
+\section{Otras consideraciones}
+\begin{frame}{Requerimientos Adicionales}
+\begin{itemize}
+
+\item Una clase/laboratorio por cada grupo de 16 sujetos que participan en el experimento
+\item 3 personas para poder supervisar el proceso experimental
+\item En caso de no poder contar con computadores, se necesitaría solicitar a sujetos que utilicen sus dispositivos para llevar a cabo el tratamiento $T_4$ y $T_6$
+\item Nos basamos en las instrucciones de \textcite{Holt.2007} para el MEG, sin embargo neutralizamos el lenguaje como lo hace \textcite{Weidenholzer.12282012}, reemplazando ``pagos'' por ``puntos'' y ``esfuerzos'' por ``números''. 
+\end{itemize}
+\end{frame}
+\section{Literatura citada}
+\begin{frame}{Literatura Citada}
+\printbibliography
+    
+\end{frame}
+\end{document}
